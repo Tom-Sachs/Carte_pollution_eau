@@ -47,22 +47,33 @@ Liste_stations = Liste_stations.append(content)
 Data = Data.merge(Liste_stations, on = 'code_station')
 
 
-###Traitement des données
+### Traitement des données
 
 # On enlève les relevés non qualifiés de la database, qui fausseraient les résultats
 # NB: Utilisation de la méthode .loc() afin d'éviter SettingWithCopyWarning
 Data = Data.loc[Data.code_qualification=='1']
 Data_F = Data.reset_index()
 
-# Mise à jour de la liste de stations
-Liste_stations = Data_F.code_station.unique().tolist()
-Liste_stations
-
 # On crée trois dataset pour chaque feature, afin de créer trois graphiques différents plus facilement
 
 Data_nitrates = Data_F.loc[Data_F.libelle_parametre=="Nitrates"]
 Data_atrazine = Data_F.loc[Data_F.libelle_parametre=="Atrazine"]
 Data_selenium = Data_F.loc[Data_F.libelle_parametre=="Sélénium"]
+
+# On enlève les outliers
+
+q = Data_nitrates['resultat'].quantile(0.99)
+Data_nitrates = Data_nitrates.loc[Data_nitrates.resultat<q]
+
+q = Data_atrazine['resultat'].quantile(0.99)
+Data_atrazine = Data_atrazine.loc[Data_atrazine.resultat<q]
+
+q = Data_selenium['resultat'].quantile(0.99)
+Data_selenium= Data_selenium.loc[Data_selenium.resultat<q]
+
+# Mise à jour de la liste de stations
+Liste_stations = Data_F.code_station.unique().tolist()
+Liste_stations
 
 
 ### Création de la carte interactive 
