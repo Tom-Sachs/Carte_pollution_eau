@@ -94,23 +94,20 @@ for i in Liste_stations:
     nom_station = str(Data_station.libelle_station.unique())
     
     # Etape 2: Création de trois graphiques avec les données 
-    alt.Scale(base=10, type='log')
+   
     Chart1 = alt.Chart(Data_nitrates[Data_nitrates.code_station==i])\
     .mark_line()\
-    .encode(x='date_prelevement:T',y='resultat:Q',color='libelle_parametre')\
-    .properties(width=200,height=100,title="Pollution en nitrates mg/L")
+    .encode(alt.X('date_prelevement:T', timeUnit = 'yearmonth', title = 'Date du prélèvement'), alt.Y('resultat:Q', title = 'Quantité en mg/L'), alt.Color('libelle_parametre')).properties(width=200,height=100,title="Pollution en nitrates")
      
-    alt.Scale(base=10, type='log')
+   
     Chart2 = alt.Chart(Data_selenium[Data_selenium.code_station==i])\
     .mark_line()\
-    .encode(x='date_prelevement:T',y='resultat:Q',color='libelle_parametre')\
-    .properties(width=200,height=100,title='Pollution en sélénium µg/L')
+    .encode(alt.X('date_prelevement:T', timeUnit = 'yearmonth', title = 'Date du prélèvement'), alt.Y('resultat:Q', title = 'Quantité en μg/L'), alt.Color('libelle_parametre')).properties(width=200,height=100,title="Pollution en sélénium")
     
-    alt.Scale(base=10, type='log')
+   
     Chart3 = alt.Chart(Data_atrazine[Data_atrazine.code_station==i])\
     .mark_line()\
-    .encode(x='date_prelevement:T',y='resultat:Q',color='libelle_parametre')\
-    .properties(width=200,height=100,title="Pollution en atrazine µg/L")
+    .encode(alt.X('date_prelevement:T', timeUnit = 'yearmonth', title = 'Date du prélèvement'), alt.Y('resultat:Q', title = 'Quantité en μg/L'), alt.Color('libelle_parametre')).properties(width=200,height=100,title="Pollution en Atrazine")
     
     Chart = alt.vconcat(Chart1, Chart2, Chart3)
     
