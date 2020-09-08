@@ -1,0 +1,58 @@
+Projet de carte des pollutions des cours d'eau en Seine-et-Marne 
+=======
+
+Pourquoi ce projet ? 
+-----------
+
+Les conséquences de la pollution des milieux aquatiques sont multiples. 
+Elles conduisent à des mortalités massives d’espèces, mais elles ont aussi des effets moins visibles : 
+une eutrophisation des milieux, des effets toxiques à plus ou moins long terme, des maladies ou des perturbations endocriniennes.
+
+L'idée du projet est de pouvoir avoir une idée précise de l'évolution de la pollution des cours d'eau autour de soi. 
+Pour l'instant, les données ont seulement été récoltées pour la Seine-et-Marne, mais le projet final est une cartographie
+complète des départements de France, accessible via une webapp. 
+
+
+Quels sont les principaux polluants des eaux de Seine-et-Marne ?
+-----------
+
+L’atrazine : Bien que ce produit soit interdit en France depuis 2003, on en trouve encore des traces dans l’eau du robinet. 
+Il s’agit d’un désherbant qui était aussi utilisé pour détruire les algues dans les mares. 
+Sa simplicité d’utilisation et son prix raisonnable en ont fait un produit très utilisé par les agriculteurs. 
+L’atrazine peut entraîner un retard de développement des fœtus ainsi qu’une réduction de la taille du crâne.
+
+Les nitrates : Il s’agit de produits utilisés pour fertiliser les sols… 
+Également utilisés pour fabriquer les explosifs ! Ces substances pourraient être hautement cancérigènes, 
+même si certaines études prétendent le contraire.
+
+Le sélénium : Il s’agit d’un composé nécessaire au corps humain à faible dose, mais toxique à haute dose, 
+surtout sous une de ses formes, la sélénite. On trouve cet élément à l’état naturel mais à faible concentration. 
+Il est utilisé par l’industrie, notamment les verreries.
+
+
+Langages et librairies utilisés
+-----------
+Python 3, Pandas, Numpty, requests, json, altair, vega, folium 
+
+
+Ajouts futurs de fonctionnalités
+-----------
+
+Général 
+---
+- Cartographie de la France entière 
+- Données sur la moyenne nationale, afin de pouvoir comparer 
+- Création d'une Webapp 
+
+
+Affichage
+---
+- Certains graphiques affichés sont pour l'instant vides, car les données sont manquantes.
+- Ajouter un titre et une explication des différents types de polluants directement sur la carte 
+
+
+
+Données et sources
+-----------
+- API Hubeau sur la qualité des cours d'eau en France : https://hubeau.eaufrance.fr/
+
