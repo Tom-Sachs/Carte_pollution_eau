@@ -1,6 +1,11 @@
 Projet de carte des pollutions des cours d'eau en Seine-et-Marne 
 =======
 
+Instructions
+-----------
+
+Pour générer la carte en local, executez le fichier map_creation.py
+
 Pourquoi ce projet ? 
 -----------
 
